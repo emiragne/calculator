@@ -18,14 +18,8 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: "3.13"
-      - name: Fetch cached dependencies
-        id: cache-dependencies
-        uses: actions/cache@v6
-        with:
-          path: __pycache__
-          key: ${{ runner.os }}-${{ hashFiles('requirements-dev.txt') }}
-      - if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
-        name: Install the test tools
+          cache: 'pip'
+      - name: Install the test tools
         run: python -m pip install -r requirements-dev.txt
       - name: Run the tests
         run: python -m pytest -v
