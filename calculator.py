@@ -13,7 +13,7 @@ def divide(a, b):
 
 def CircleArea(r):
 	if r >= 0:
-		return 3.14 * (r ** 2)
+		return 3.14 * r * r
 	else:
 		return "Error"
 
